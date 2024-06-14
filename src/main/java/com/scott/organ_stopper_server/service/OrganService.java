@@ -35,7 +35,13 @@ public class OrganService {
         return organs.get(index);
     }
 
-    public void appendOrganNames(List<String> organNames) {
+    /**
+     * Appends new organs to the existing list of organs, using the passed in
+     * names as the names of the organs.  The resulting organs are assigned the
+     * default divisions, as detailed in Organ.java
+     * @param organNames A list of organ names.
+     */
+    public void appendOrgansByNames(List<String> organNames) {
         organs.addAll(organNames.stream().map(Organ::new).toList());
     }
 }
