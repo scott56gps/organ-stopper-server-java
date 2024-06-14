@@ -35,6 +35,16 @@ public class OrganService {
         return organs.get(index);
     }
 
+    public Organ getOrganById(int id) {
+        for (Organ organ : organs) {
+            if (organ.getId() == id) {
+                return organ;
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Appends new organs to the existing list of organs, using the passed in
      * names as the names of the organs.  The resulting organs are assigned the
