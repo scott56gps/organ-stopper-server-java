@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Organ {
+    private Integer id;
     private final String name;
     private final List<Division> divisions;
 
