@@ -1,7 +1,8 @@
-package com.scott.organ_stopper_server.controller;
+package com.scott.organstopperserver.controller;
 
-import com.scott.organ_stopper_server.model.Organ;
-import com.scott.organ_stopper_server.service.OrganService;
+import com.scott.organstopperserver.exception.OrganNotFoundException;
+import com.scott.organstopperserver.model.entity.Organ;
+import com.scott.organstopperserver.service.OrganService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ public class OrganController {
     }
 
     @GetMapping("/organ/{id}")
-    public ResponseEntity<Organ> getOrganById(@PathVariable Integer id) {
+    public ResponseEntity<Organ> getOrganById(@PathVariable Long id) throws OrganNotFoundException {
         return ResponseEntity.ok(organService.getOrganById(id));
     }
 }

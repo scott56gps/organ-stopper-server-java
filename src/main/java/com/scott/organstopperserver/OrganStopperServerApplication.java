@@ -1,4 +1,4 @@
-package com.scott.organ_stopper_server;
+package com.scott.organstopperserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
