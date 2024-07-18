@@ -1,9 +1,7 @@
 package com.scott.organstopperserver.model.entity;
 
 import com.scott.organstopperserver.model.PipeLength;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Stop {
@@ -11,6 +9,11 @@ public class Stop {
     private Long id;
     private String name;
     private PipeLength length;
+
+    // The following is a Foreign Key.  There are many stops related to one organ
+    @ManyToOne
+    @JoinColumn(name = "organ_id", referencedColumnName = "id")
+    private Long organId;
 
     public Stop() {}
 
