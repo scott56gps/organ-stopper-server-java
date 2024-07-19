@@ -1,7 +1,7 @@
 package com.scott.organstopperserver.controller;
 
 import com.scott.organstopperserver.exception.OrganNotFoundException;
-import com.scott.organstopperserver.model.entity.Organ;
+import com.scott.organstopperserver.model.entity.organ.Organ;
 import com.scott.organstopperserver.service.OrganService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

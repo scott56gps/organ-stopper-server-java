@@ -2,11 +2,8 @@ package com.scott.organstopperserver.service;
 
 import com.scott.organstopperserver.datarepository.OrganRepository;
 import com.scott.organstopperserver.exception.OrganNotFoundException;
-import com.scott.organstopperserver.model.entity.Organ;
+import com.scott.organstopperserver.model.entity.organ.Organ;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class OrganService {

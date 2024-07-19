@@ -1,4 +1,4 @@
-package com.scott.organstopperserver.model.entity;
+package com.scott.organstopperserver.model.entity.organ;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
