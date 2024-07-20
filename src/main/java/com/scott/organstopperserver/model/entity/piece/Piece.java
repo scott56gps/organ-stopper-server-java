@@ -16,4 +16,13 @@ public class Piece {
 
     @OneToMany
     private List<OrganConfiguration> organConfigurations;
+
+    public Piece() {
+
+    }
+
+    public Piece(String name, List<OrganConfiguration> organConfigurations) {
+        this.name = name;
+        this.organConfigurations = organConfigurations;
+    }
 }

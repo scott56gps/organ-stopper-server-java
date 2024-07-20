@@ -13,4 +13,10 @@ public class OrganConfiguration {
 
     @OneToMany
     private List<StopCombination> stopCombinations;
+
+    public OrganConfiguration() {}
+
+    public OrganConfiguration(List<StopCombination> stopCombinations) {
+        this.stopCombinations = stopCombinations;
+    }
 }

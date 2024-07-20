@@ -1,12 +1,13 @@
 package com.scott.organstopperserver.configuration;
 
-import com.scott.organstopperserver.datarepository.DivisionRepository;
-import com.scott.organstopperserver.datarepository.OrganRepository;
-import com.scott.organstopperserver.datarepository.StopRepository;
+import com.scott.organstopperserver.datarepository.*;
 import com.scott.organstopperserver.model.entity.organ.Division;
 import com.scott.organstopperserver.model.entity.organ.Organ;
 import com.scott.organstopperserver.model.PipeLength;
 import com.scott.organstopperserver.model.entity.organ.Stop;
+import com.scott.organstopperserver.model.entity.piece.OrganConfiguration;
+import com.scott.organstopperserver.model.entity.piece.Piece;
+import com.scott.organstopperserver.model.entity.piece.StopCombination;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +23,9 @@ public class DatabaseConfiguration {
 
     @Bean
     CommandLineRunner initializeDatabase(OrganRepository organRepository, DivisionRepository divisionRepository,
-                                         StopRepository stopRepository) {
+                                         StopRepository stopRepository, PieceRepository pieceRepository,
+                                         OrganConfigurationRepository organConfigurationRepository,
+                                         StopCombinationRepository stopCombinationRepository) {
 
         List<Division> divisions = Arrays.asList(
                 divisionRepository.save(new Division("Great", Arrays.asList(
@@ -41,8 +44,17 @@ public class DatabaseConfiguration {
                 )))
         );
 
+        OrganConfiguration organConfiguration1 = organConfigurationRepository
+                .save(new OrganConfiguration(Arrays.asList(
+                        stopCombinationRepository.save(
+                                new StopCombination(1, List.of(divisions.get(0).getStops().get(0)))
+                        ))));
+
+        Piece piece1 = new Piece("Pasticcio", List.of(organConfiguration1));
+
         return args -> {
-            log.info("Preloading " + organRepository.save(new Organ("Walt Disney Concert Hall", divisions)));
+            log.info("Preloading Organ: " + organRepository.save(new Organ("Walt Disney Concert Hall", divisions)));
+            log.info("Preloading Piece: " + pieceRepository.save(piece1));
         };
     }
 }

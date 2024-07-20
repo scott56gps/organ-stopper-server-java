@@ -14,4 +14,11 @@ public class StopCombination {
 
     @OneToMany
     private List<Stop> stops;
+
+    public StopCombination() {}
+
+    public StopCombination(int preset, List<Stop> stops) {
+        this.preset = preset;
+        this.stops = stops;
+    }
 }
